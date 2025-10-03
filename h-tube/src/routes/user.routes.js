@@ -1,18 +1,9 @@
-import { Router } from "express";
-import { registerUser } from "../controllers/user.controller.js";
+import express from "express";
+const router = express.Router();
 
-const router = Router();
-
-router.route("/register").post(
-    XMLHttpRequestUpload.fields([
-        {
-            name: "avatar",
-            maxCount: 1
-        },{
-            name: "coverImage",
-            maxCount: 1
-        }
-    ]),
-registerUser);
+router.post("/register", (req, res) => {
+  // Registration logic here
+  res.status(201).json({ message: "User registered successfully!" });
+});
 
 export default router;
